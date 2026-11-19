@@ -1,15 +1,12 @@
-/**
- * Knight Bot - A WhatsApp Bot
- * Copyright (c) 2024 Professor
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License.
- * 
+
  * Credits:
  * - Baileys Library by @adiwajshing
  * - Pair Code implementation inspired by TechGod143 & DGXEON
  */
 require('./settings')
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 8000;
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
 const chalk = require('chalk')
@@ -423,3 +420,11 @@ fs.watchFile(file, () => {
     delete require.cache[file]
     require(file)
 })
+// Basic health check route for Koyeb
+app.get('/', (req, res) => {
+    res.send('ULTIMATE_100 Bot is running!');
+});
+
+app.listen(PORT, () => {
+    console.log(`🌐 Health check server listening on port ${PORT}`);
+});
