@@ -1,8 +1,4 @@
 
- * Credits:
- * - Baileys Library by @adiwajshing
- * - Pair Code implementation inspired by TechGod143 & DGXEON
- */
 require('./settings')
 const express = require('express');
 const app = express();
